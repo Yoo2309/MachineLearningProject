@@ -3,10 +3,12 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 import joblib
+from pathlib import Path
 
 
 def CheckComment(data):
-    df1= pd.read_csv("./pages/CheckSpamToxicComment/YoutubeSpamMergedData.csv")
+    spamData = Path(__file__).parents[1] / 'YoutubeSpamMergedData.csv'
+    df1= pd.read_csv(spamData)
     df1_data = df1[["CONTENT","CLASS"]]
     # Features and Labels
     df1_x = df1_data['CONTENT']
@@ -27,8 +29,8 @@ def CheckComment(data):
 
 
     #TOXIC COMMENT
-
-    df2= pd.read_csv("./pages/CheckSpamToxicComment/data_train_clean.csv")
+    toxicData = Path(__file__).parents[1] / 'data_train_clean.csv'
+    df2= pd.read_csv(toxicData)
     df2_data = df2[["clean_comment","toxic"]]
     # Features and Labels
     df2_x = df2_data['clean_comment']
