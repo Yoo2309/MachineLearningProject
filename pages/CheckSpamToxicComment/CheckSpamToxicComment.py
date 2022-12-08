@@ -35,7 +35,7 @@ def CheckComment(data):
     
     
     #SPAM COMMENT
-    df1= pd.read_csv("pages/CheckSpamToxicComment/YoutubeSpamMergedData.csv")
+    df1= pd.read_csv("pages/CheckSpamToxicComment/YoutubeSpamMergeddata.csv")
     df1_data = df1[["CONTENT","CLASS"]]
     # Features and Labels
     df1_x = df1_data['CONTENT']
