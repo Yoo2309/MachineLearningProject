@@ -13,7 +13,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['KNN01','KNN01a','KNN01b']) 
+app_mode = st.sidebar.selectbox('Select Page',['KNN01','KNN01a']) 
 
 if app_mode=='KNN01':
     st.title("KNN01") 
@@ -58,9 +58,3 @@ elif app_mode == 'KNN01a':
     accuracy = accuracy_score(predicted, test_labels)
     st.write('Độ chính xác: %.0f%%' % (accuracy*100))
     joblib.dump(knn, "knn.pkl")
-
-elif app_mode == 'KNN01b':
-    st.title('KNN01b')
-    from pages.KNN1.KNN01b import *
-    app = App()
-    app.mainloop()
