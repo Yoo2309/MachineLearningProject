@@ -6,7 +6,7 @@ from sklearn.naive_bayes import MultinomialNB
 import joblib
 
 def CheckComment(data):
-    df1= pd.read_csv("static/YoutubeSpamMergedData.csv")
+    df1= pd.read_csv("MachineLearningProject/pages/SpamToxicComment/YoutubeSpamMergeddata.csv")
     df1_data = df1[["CONTENT","CLASS"]]
     # Features and Labels
     df1_x = df1_data['CONTENT']
