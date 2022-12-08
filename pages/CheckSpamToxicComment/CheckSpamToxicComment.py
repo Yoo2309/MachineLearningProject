@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 def CheckComment(data):
-    spamData = Path(__file__).parents[2] / 'YoutubeSpamMergedData.csv'
+    spamData = Path(__file__).parents[0] / 'YoutubeSpamMergedData.csv'
     df1= pd.read_csv(spamData)
     df1_data = df1[["CONTENT","CLASS"]]
     # Features and Labels
@@ -29,7 +29,7 @@ def CheckComment(data):
 
 
     #TOXIC COMMENT
-    toxicData = Path(__file__).parents[2] / 'data_train_clean.csv'
+    toxicData = Path(__file__).parents[0] / 'data_train_clean.csv'
     df2= pd.read_csv(toxicData)
     df2_data = df2[["clean_comment","toxic"]]
     # Features and Labels
