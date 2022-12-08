@@ -1,3 +1,9 @@
+import pandas as pd 
+import pickle
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+import joblib
+
 def CheckComment(data):
     df1= pd.read_csv("/app/machinelearningproject/pages/SpamToxicComment/YoutubeSpamMergedData.csv")
     df1_data = df1[["CONTENT","CLASS"]]
