@@ -196,6 +196,8 @@ else:
 
     st.write(np.min(y_test), np.max(y) + 100)
 
+    
+    fig, ax = plt.subplots()
     plt.axis([-4, 10, np.min(y_test) - 100, np.max(y) + 100])
 
     # Tinh sai so cua scikit-learn
@@ -210,7 +212,6 @@ else:
     sai_so_binh_phuong_trung_binh = mean_squared_error(y_test, y_test_predict)
     st.write('sai so binh phuong trung binh - tap test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
-    fig, ax = plt.subplots()
     plt.plot(X,y, 'ro')
     plt.plot(X_test,y_test, 's')
     plt.plot(x_ve, y_ve, 'b')
