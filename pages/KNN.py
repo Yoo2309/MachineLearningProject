@@ -119,7 +119,35 @@ elif (app_mode == 'bai02'):
         st.image(image, clamp=True)
         st.write("I think that digit is: {}".format(prediction))
 elif (app_mode =='Bai03'):
-    ''
+
+    mnist = keras.datasets.mnist 
+    (X_train, Y_train), (X_test, Y_test) = mnist.load_data() 
+
+    # 784 = 28x28
+    RESHAPED = 784
+    X_train = X_train.reshape(60000, RESHAPED)
+    X_test = X_test.reshape(10000, RESHAPED) 
+
+    # now, let's take 10% of the training data and use that for validation
+    (trainData, valData, trainLabels, valLabels) = train_test_split(X_train, Y_train,
+        test_size=0.1, random_state=84)
+
+    model = KNeighborsClassifier()
+    model.fit(trainData, trainLabels)
+
+    # save model, sau này ta sẽ load model để dùng 
+    joblib.dump(model, "knn_mnist.pkl")
+
+    # Đánh giá trên tập validation
+    predicted = model.predict(valData)
+    do_chinh_xac = accuracy_score(valLabels, predicted)
+    st.write('Độ chính xác trên tập validation: %.0f%%' % (do_chinh_xac*100))
+
+    # Đánh giá trên tập test
+    predicted = model.predict(X_test)
+    do_chinh_xac = accuracy_score(Y_test, predicted)
+    st.write('Độ chính xác trên tập test: %.0f%%' % (do_chinh_xac*100))
+
 elif (app_mode =='Bai3a'):
     st.title('Bài 3a')
     
