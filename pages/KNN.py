@@ -4,9 +4,12 @@ from sklearn.datasets import make_blobs
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
-
+from sklearn import datasets
 import matplotlib.pyplot as plt
 import numpy as np
+from skimage import exposure
+import imutils
+import cv2
 
 st.markdown("# KNN ❄️")
 st.sidebar.markdown("# KNN ❄️")
@@ -25,6 +28,7 @@ def get_value(val,my_dict):
 app_mode = st.sidebar.selectbox('Select Page',['KNN1','KNN2']) 
 
 if app_mode=='KNN1':
+    
     st.title("KNN1") 
     np.random.seed(100)
     N = 150
@@ -75,6 +79,41 @@ if app_mode=='KNN1':
     st.write('Ket qua nhan dang la nhom:', ket_qua[0])
     st.pyplot(fig)
     
-elif app_mode == 'KNN02':
-   ''
+elif (app_mode == 'KNN2'):
+    st.title("KNN1") 
+    # take the MNIST data and construct the training and testing split, using 75% of the
+    # data for training and 25% for testing
+    mnist = datasets.load_digits()
+    (trainData, testData, trainLabels, testLabels) = train_test_split(np.array(mnist.data),
+        mnist.target, test_size=0.25, random_state=42)
 
+    # now, let's take 10% of the training data and use that for validation
+    (trainData, valData, trainLabels, valLabels) = train_test_split(trainData, trainLabels,
+        test_size=0.1, random_state=84)
+
+    st.write("training data points: ", len(trainLabels))
+    st.write("validation data points: ", len(valLabels))
+    st.write("testing data points: ", len(testLabels))
+
+    model = KNeighborsClassifier()
+    model.fit(trainData, trainLabels)
+    # evaluate the model and update the accuracies list
+    score = model.score(valData, valLabels)
+    st.write("accuracy = %.2f%%" % (score * 100))
+
+    # loop over a few random digits
+    for i in list(map(int, np.random.randint(0, high=len(testLabels), size=(5,)))):
+        # grab the image and classify it
+        image = testData[i]
+        prediction = model.predict(image.reshape(1, -1))[0]
+
+        # convert the image for a 64-dim array to an 8 x 8 image compatible with OpenCV,
+        # then resize it to 32 x 32 pixels so we can see it better
+        image = image.reshape((8, 8)).astype("uint8")
+
+        image = exposure.rescale_intensity(image, out_range=(0, 255))
+        image = imutils.resize(image, width=32, inter=cv2.INTER_CUBIC)
+
+        # show the prediction
+        st.image(image, clamp=True)
+        st.write("I think that digit is: {}".format(prediction))
