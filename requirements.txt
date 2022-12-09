@@ -7,3 +7,4 @@ joblib==1.2.0
 scikit-learn==1.0.2
 plotly==5.11.0
 scikit-image==0.19.3
+imutils==0.5.4
