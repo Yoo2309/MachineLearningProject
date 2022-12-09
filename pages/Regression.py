@@ -108,6 +108,8 @@ elif (app_mode == 'Bai03'):
     st.write('sai so binh phuong trung binh: %.6f' % (sai_so_binh_phuong_trung_binh/2))
     st.pyplot(fig)
 elif (app_mode == 'Bai04'):
+    st.title("Bài 04")
+    
     # height (cm), input data, each row is a data point
     X = np.array([[147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]]).T
     y = np.array([ 49, 50, 90, 54, 58, 59, 60, 62, 63, 64, 66, 67, 68])
@@ -131,6 +133,8 @@ elif (app_mode == 'Bai04'):
     plt.plot(x, y)
     st.pyplot(fig)
 else:
+    st.title("Bài 05")
+    
     # height (cm), input data, each row is a data point
     X = np.array([[147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]]).T
     y = np.array([ 49, 50, 90, 54, 58, 59, 60, 62, 63, 64, 66, 67, 68])
