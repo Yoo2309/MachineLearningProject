@@ -10,6 +10,8 @@ import numpy as np
 from skimage import exposure
 import imutils
 import cv2
+from tensorflow import keras 
+import joblib
 
 st.markdown("# KNN ❄️")
 st.sidebar.markdown("# KNN ❄️")
@@ -116,3 +118,38 @@ elif (app_mode == 'bai02'):
         # show the prediction
         st.image(image, clamp=True)
         st.write("I think that digit is: {}".format(prediction))
+elif (app_mode =='Bai03'):
+    ''
+elif (app_mode =='Bai3a'):
+    st.title('Bài 3a')
+    
+    mnist = keras.datasets.mnist 
+    (X_train, Y_train), (X_test, Y_test) = mnist.load_data() 
+
+
+    index = np.random.randint(0, 9999, 100)
+    sample = np.zeros((100,28,28), np.uint8)
+    for i in range(0, 100):
+        sample[i] = X_test[index[i]]
+
+
+    # 784 = 28x28
+    RESHAPED = 784
+    sample = sample.reshape(100, RESHAPED) 
+    knn = joblib.load("pages/KNN1/knn_mnist.pkl")
+    predicted = knn.predict(sample)
+    k = 0
+    for x in range(0, 10):
+        for y in range(0, 10):
+            print('%2d' % (predicted[k]), end='')
+            k = k + 1
+        st.write()
+
+    digit = np.zeros((10*28,10*28), np.uint8)
+    k = 0
+    for x in range(0, 10):
+        for y in range(0, 10):
+            digit[x*28:(x+1)*28, y*28:(y+1)*28] = X_test[index[k]]
+            k = k + 1
+
+    st.image('pages/KNN1/digit.jpg')
