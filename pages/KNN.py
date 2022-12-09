@@ -25,11 +25,11 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['KNN1','KNN2']) 
+app_mode = st.sidebar.selectbox('Select Page',['Bai01','Bai02', 'Bai03', 'Bai3a', 'Bai04', 'Bai05']) 
 
-if app_mode=='KNN1':
+if app_mode=='Bai01':
     
-    st.title("KNN1") 
+    st.title("Bài 1") 
     np.random.seed(100)
     N = 150
 
@@ -78,9 +78,8 @@ if app_mode=='KNN1':
     ket_qua = knn.predict(my_test)
     st.write('Ket qua nhan dang la nhom:', ket_qua[0])
     st.pyplot(fig)
-    
-elif (app_mode == 'KNN2'):
-    st.title("KNN1") 
+elif (app_mode == 'bai02'):
+    st.title("Bài 02") 
     # take the MNIST data and construct the training and testing split, using 75% of the
     # data for training and 25% for testing
     mnist = datasets.load_digits()
