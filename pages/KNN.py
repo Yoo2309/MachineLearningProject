@@ -203,8 +203,8 @@ elif (app_mode == 'Bai04'):
                 st.latex("IMAGE")
                 st.write()
                 st.write()
-                cv2.imwrite('digit.jpg', digit)
-                image = Image.open('digit.jpg')
+                cv2.imwrite('pages/KNN1/digit.jpg', digit)
+                image = Image.open('pages/KNN1/digit.jpg')
                 st.image(image, caption='IMAGE')
                 sample = np.zeros((100,28,28), np.uint8)
                 for i in range(0, 100):
