@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 import streamlit as st
 st.markdown("# Giảm dần đạo hàm ❄️")
-st.sidebar.markdown("# Regression ❄️")
+st.sidebar.markdown("# Giảm dần đạo hàm ❄️")
 
 app_mode = st.sidebar.selectbox('Select Page',['Bai01','Bai02', 'Bai02a','Bai03', 'Bai04', 'Bai05', 'Temp']) 
 

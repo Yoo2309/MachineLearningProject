@@ -27,7 +27,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['Bai01','Bai02', 'Bai03', 'Bai3a', 'Bai04', 'Bai05']) 
+app_mode = st.sidebar.selectbox('Select Page',['Bai01','Bai02', 'Bai03', 'Bai3a', 'Bai04', 'Bai08']) 
 
 if app_mode=='Bai01':
     
@@ -223,5 +223,4 @@ elif (app_mode == 'Bai04'):
                         k = k + 1
                     st.write(ketqua )
 else:
-    from PIL import ImageTk, Image
     st.header("Bài 8")
