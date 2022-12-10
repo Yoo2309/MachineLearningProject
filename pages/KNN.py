@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 from sklearn import datasets
+from PIL import ImageTk, Image
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage import exposure
@@ -182,7 +183,6 @@ elif (app_mode =='Bai3a'):
 
     st.image('pages/KNN1/digit.jpg')
 elif (app_mode == 'Bai04'):
-    from PIL import ImageTk, Image
     st.header("Bài 4")
     mnist = keras.datasets.mnist
     (X_train, Y_train), (X_test, Y_test) = mnist.load_data()
