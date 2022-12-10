@@ -10,5 +10,5 @@ scikit-image==0.19.3
 imutils==0.5.4
 opencv-python-headless==4.6.0.66
 tensorflow==2.11.0
-Pillow
+Pillow==9.3.0
 tk==0.1.0
