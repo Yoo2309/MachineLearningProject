@@ -182,8 +182,8 @@ elif (app_mode =='Bai3a'):
 
     st.image('pages/KNN1/digit.jpg')
 elif (app_mode == 'Bai04'):
-    import tkinter as tk
-    from PIL import ImageTk, Image
+    # import tkinter as tk
+    # from PIL import ImageTk, Image
     st.header("Bài 4")
     mnist = keras.datasets.mnist
     (X_train, Y_train), (X_test, Y_test) = mnist.load_data()
