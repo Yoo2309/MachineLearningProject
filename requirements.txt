@@ -11,4 +11,4 @@ imutils==0.5.4
 opencv-python-headless==4.6.0.66
 tensorflow ==2.11.0
 Pillow==9.1.1
-
+tk==0.1.0
