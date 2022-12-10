@@ -181,3 +181,44 @@ elif (app_mode =='Bai3a'):
             k = k + 1
 
     st.image('pages/KNN1/digit.jpg')
+elif (app_mode == 'Bai04'):
+    st.header("Bai04")
+    uploaded_file = st.file_uploader("OPEN FILE",type=['pkl'])
+    if uploaded_file is not None:
+        mnist = keras.datasets.mnist
+        (X_train, Y_train), (X_test, Y_test) = mnist.load_data()
+        index = None
+        knn = joblib.load(uploaded_file)
+        btn1 = st.button('Create Digit and Recognition')
+        if btn1:
+            col1,col2 = st.columns([15,20])
+            index = np.random.randint(0, 9999, 100)
+            digit = np.zeros((10*28,10*28), np.uint8)
+            k = 0
+            for x in range(0, 10):
+                for y in range(0, 10):
+                        digit[x*28:(x+1)*28, y*28:(y+1)*28] = X_test[index[k]]
+                        k = k + 1  
+            with col1:
+                st.latex("IMAGE")
+                st.write()
+                st.write()
+                cv2.imwrite('digit.jpg', digit)
+                image = Image.open('digit.jpg')
+                st.image(image, caption='IMAGE')
+                sample = np.zeros((100,28,28), np.uint8)
+                for i in range(0, 100):
+                    sample[i] = X_test[index[i]]
+                    
+                RESHAPED = 784
+                sample = sample.reshape(100, RESHAPED) 
+                predicted = knn.predict(sample)
+                k = 0
+                with col2:
+                    st.latex("Ket qua nhan dang")
+                    for x in range(0, 4):
+                        ketqua = ''
+                        for y in range(0, 25):
+                            ketqua = ketqua + '%3d' % (predicted[k])
+                            k = k + 1
+                        st.subheader(ketqua )
