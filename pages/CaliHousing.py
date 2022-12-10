@@ -37,8 +37,9 @@ def ShowResult (some_labels, some_data_prepared, rmse_train, rmse_cross_validati
 if app_mode=='Decision_Tree_Regression':
     st.title("Decision Tree Regression") 
     from pages.CaliHousing1.Decision_Tree_Regression import *
-
     some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test = Decision_Tree_Regression()
+    
+    st.line_chart(some_data_prepared)
     ShowResult(some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test)
 
 elif app_mode == 'Linear_Regression':
@@ -46,6 +47,7 @@ elif app_mode == 'Linear_Regression':
     from pages.CaliHousing1.Linear_Regression import *
      
     some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test = Linear_Regression()
+    st.line_chart(some_data_prepared)
     ShowResult(some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test)
 
 elif app_mode == 'Random_Forest_Regression_Grid_Search_CV':

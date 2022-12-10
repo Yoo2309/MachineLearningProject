@@ -166,7 +166,7 @@ elif (app_mode == 'Bai03'):
     model = LinearRegression()
     model.fit(X.reshape(-1, 1), y.reshape(-1, 1))
     w, b = model.coef_[0][0], model.intercept_[0]
-    print('b = %.4f va w = %.4f' % (b, w))
+    st.write('b = %.4f va w = %.4f' % (b, w))
 
     one = np.ones((X.shape[0],1))
     Xbar = np.concatenate((one, X.reshape(-1, 1)), axis = 1)
@@ -190,11 +190,11 @@ elif (app_mode == 'Bai03'):
 
     w_init = np.array([0, 0])
     (w1, it1) = myGD(w_init, 1)
-    print('Sol found by GD: w = ', w1[-1], ',\nafter %d iterations.' %(it1+1))
-    for item in w1:
-        print(item, cost(item))
+    st.write('Sol found by GD: w = ', w1[-1], ',\nafter %d iterations.' %(it1+1))
+    # for item in w1:
+    #     st.write(item, cost(item))
 
-    print(len(w1))
+    # st.write(len(w1))
 
     A = N/(2*N)
     B = np.sum(X*X)/(2*N)
