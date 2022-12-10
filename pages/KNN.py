@@ -80,7 +80,7 @@ if app_mode=='Bai01':
     ket_qua = knn.predict(my_test)
     st.write('Ket qua nhan dang la nhom:', ket_qua[0])
     st.pyplot(fig)
-elif (app_mode == 'bai02'):
+elif (app_mode == 'Bai02'):
     st.title("Bài 02") 
     # take the MNIST data and construct the training and testing split, using 75% of the
     # data for training and 25% for testing
