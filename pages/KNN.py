@@ -8,6 +8,7 @@ from sklearn import datasets
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage import exposure
+from PIL import ImageTk, Image
 import imutils
 import cv2
 from tensorflow import keras 
