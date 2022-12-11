@@ -70,8 +70,11 @@ if app_mode=='Bai1':
     nhom_0 = np.array(nhom_0)
     nhom_1 = np.array(nhom_1)
 
-    st.write('Nhóm 0: ', nhom_0)
-    st.write('Nhóm 1: ', nhom_1)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write('Nhóm 0', nhom_0, use_column_width=True)
+    with col2:
+        st.write('Nhóm 1', nhom_1, use_column_width=True)
 
     svc = LinearSVC(C = 100, loss="hinge", random_state=42, max_iter = 100000)
 
@@ -176,8 +179,13 @@ elif app_mode == 'Bai1a':
     nhom_0 = np.array(nhom_0)
     nhom_1 = np.array(nhom_1)
 
-    st.write('Nhóm 0: ', nhom_0)
-    st.write('Nhóm 1: ', nhom_1)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write('Nhóm 0', nhom_0, use_column_width=True)
+    with col2:
+        st.write('Nhóm 1', nhom_1, use_column_width=True)
+
+
 
 
     svc = LinearSVC(C = 100, loss="hinge", random_state=42, max_iter = 100000)
@@ -301,8 +309,11 @@ elif app_mode == 'Bai2':
     nhom_0 = np.array(nhom_0)
     nhom_1 = np.array(nhom_1)
 
-    st.write('Nhóm 0: ', nhom_0)
-    st.write('Nhóm 1: ', nhom_1)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write('Nhóm 0', nhom_0, use_column_width=True)
+    with col2:
+        st.write('Nhóm 1', nhom_1, use_column_width=True)
 
 
     svc = SVC(C = 100, kernel='linear', random_state=42)
@@ -331,7 +342,7 @@ elif app_mode == 'Bai2':
     plt.plot(xx, yy, 'b')
 
     support_vectors = svc.support_vectors_
-    st.write(support_vectors)
+    st.write('support vector: ', support_vectors)
 
     w = he_so[0]
     a = w[0]

@@ -1,24 +1,17 @@
 import streamlit as st
 
-st.markdown("# ĐỒ ÁN CUỐI KỲ HỌC MÁY 🎈")
-st.sidebar.markdown("# Home 🎈")    
+st.sidebar.markdown("# 🏠 Home")
 container = st.container(); 
 
-st.write('Lớp: MALE431984_22_1_04')
-st.write('SINH VIÊN THỰC HIỆN:')
-col1,col2 = st.columns([15,20])
-with col1:
-    text = '''
-    Họ và tên
-    Trần Ngô Bích Du
-    Đào Thị Thanh Vi'''
-    st.text(text)
-with col2:
-    code = '''
-    Mã số sinh viên
-    20110618
-    Đào Thị Thanh Vi'''
-    st.text(code)
-st.write('GIÁO VIÊN HƯỚNG DẪN: Trần Tiến Đức')
+html =  '''
+           <h2 style=\"font-weight: bold; text-align: center;\">MACHINE LEARNING</h2>
+           <h2 style=\"font-weight: bold; text-align: center;\">ĐỒ ÁN CUỐI KỲ</h2> <br>
+           <h4 style=\"font-weight: bold;\">Mã lớp học phần: MALE431984_22_1_04</h4>
+           <h4 style=\"font-weight: bold;\">Giảng viên hướng dẫn: Ths.Trần Tiến Đức</h4>
+           <h4 style=\"font-weight: bold;\">Sinh viên thực hiện:</h4>
+           <h4 style=\"font-weight: bold; text-align: center;\">Trần Ngô Bích Du &nbsp;&nbsp;&nbsp;&nbsp; 20110618</h4>
+           <h4 style=\"font-weight: bold; text-align: center;\">Đào Thị Thanh Vi &nbsp;&nbsp;&nbsp;&nbsp; 20110223</h4>
+        '''
+st.markdown(html, unsafe_allow_html=True)
 
 st.image('images/machineLearning3.png')

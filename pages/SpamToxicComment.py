@@ -10,5 +10,5 @@ with st.form (key='predict', clear_on_submit=True):
     
 if submit:
     st.info("Prediction result:")
-    st.write(code + " is " + CheckComment(code))
+    st.write(code + " là " + CheckComment(code))
 

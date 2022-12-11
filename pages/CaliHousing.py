@@ -23,16 +23,14 @@ def ShowResult (some_labels, some_data_prepared, rmse_train, rmse_cross_validati
     st.write("Labels:", list(some_labels))
     st.write('\n')
 
-    st.write('Sai số bình phương trung bình - train:')
-    st.write('%.2f' % rmse_train) 
+    st.write('Sai số bình phương trung bình - train: %.2f' % rmse_train)
     
-    st.write('Sai số bình phương trung bình - cross-validation:')
-    st.write("Mean: %.2f" % (rmse_cross_validation.mean()))
-    st.write("Standard deviation: %.2f" % (rmse_cross_validation.std()))
+    st.write('Sai số bình phương trung bình - cross - validation:')
+    st.write("+ Mean: %.2f" % (rmse_cross_validation.mean()))
+    st.write("+ Standard deviation: %.2f" % (rmse_cross_validation.std()))
 
     # Tính sai số bình phương trung bình trên tập dữ liệu kiểm tra (test)
-    st.write('Sai số bình phương trung bình - test:')
-    st.write('%.2f' % rmse_test)
+    st.write('Sai số bình phương trung bình - test: %.2f' % rmse_test)  
 
 if app_mode=='Decision_Tree_Regression':
     st.title("Decision Tree Regression") 

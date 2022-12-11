@@ -20,8 +20,8 @@ def get_value(val,my_dict):
         if val == key:
             return value
         
-app_mode = st.selectbox('Chọn bài',['Bai01a','Bai01b', 'Bai01c', 'Bai01d']) 
-if (app_mode == 'Bai01a'):
+app_mode = st.selectbox('Chọn bài',['Bài 1a','Bài 1b', 'Bài 1c', 'Bài 1d']) 
+if (app_mode == 'Bài 1a'):
     np.random.seed(100)
 
     N = 30
@@ -52,23 +52,23 @@ if (app_mode == 'Bai01a'):
     y_train_predict = lin_reg.predict(X_poly)
     # print(y_train_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y, y_train_predict)
-    st.write('sai so binh phuong trung binh - tap training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
     # Tinh sai so cua scikit-learn
     y_test_predict = lin_reg.predict(X_poly_test)
     # print(y_test_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y_test, y_test_predict)
-    st.write('sai so binh phuong trung binh - tap test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
     fig, ax = plt.subplots()
     plt.plot(X,y, 'ro')
     plt.plot(X_test,y_test, 's')
     plt.plot(x_ve, y_ve, 'b')
     plt.plot(x_ve, y_real, '--')
-    plt.title('Hoi quy da thuc bac 2')
+    plt.title('Hồi quy đa thức bậc 2')
     
     st.pyplot(fig)
-elif (app_mode == 'Bai01b'):  
+elif (app_mode == 'Bài 1b'):  
     st.title('Bài 1c')
       
     np.random.seed(100)
@@ -101,22 +101,22 @@ elif (app_mode == 'Bai01b'):
     y_train_predict = lin_reg.predict(X_poly)
     # print(y_train_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y, y_train_predict)
-    st.write('sai so binh phuong trung binh - tap training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
     # Tinh sai so cua scikit-learn
     y_test_predict = lin_reg.predict(X_poly_test)
     # print(y_test_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y_test, y_test_predict)
-    st.write('sai so binh phuong trung binh - tap test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
     fig, ax = plt.subplots()
     plt.plot(X,y, 'ro')
     plt.plot(X_test,y_test, 's')
     plt.plot(x_ve, y_ve, 'b')
     plt.plot(x_ve, y_real, '--')
-    plt.title('Hoi quy da thuc bac 4')
+    plt.title('Hồi quy đa thức 4')
     st.pyplot(fig)
-elif(app_mode == 'Bai01c'):
+elif(app_mode == 'Bài 1c'):
     st.title('Bài 1c')
     
     np.random.seed(100)
@@ -150,13 +150,13 @@ elif(app_mode == 'Bai01c'):
     y_train_predict = lin_reg.predict(X_poly)
     # print(y_train_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y, y_train_predict)
-    st.write('sai so binh phuong trung binh - tap training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
     
     # Tinh sai so cua scikit-learn
     y_test_predict = lin_reg.predict(X_poly_test)
     # print(y_test_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y_test, y_test_predict)
-    st.write('sai so binh phuong trung binh - tap test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
     fig, ax = plt.subplots()
     plt.axis([-4, 10, np.min(y_test) - 100, np.max(y) + 100])
@@ -164,7 +164,7 @@ elif(app_mode == 'Bai01c'):
     plt.plot(X_test,y_test, 's')
     plt.plot(x_ve, y_ve, 'b')
     plt.plot(x_ve, y_real, '--')
-    plt.title('Hoi quy da thuc bac 8')
+    plt.title('Hồi quy đa thức bậc 8')
     st.pyplot(fig)
 else:
     st.title('Bài 1d')
@@ -204,18 +204,18 @@ else:
     y_train_predict = lin_reg.predict(X_poly)
     # print(y_train_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y, y_train_predict)
-    st.write('sai so binh phuong trung binh - tap training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập training: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
     # Tinh sai so cua scikit-learn
     y_test_predict = lin_reg.predict(X_poly_test)
     # print(y_test_predict)
     sai_so_binh_phuong_trung_binh = mean_squared_error(y_test, y_test_predict)
-    st.write('sai so binh phuong trung binh - tap test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
+    st.write('Sai số bình phương trung bình - tập test: %.6f' % (sai_so_binh_phuong_trung_binh/2))
 
     plt.plot(X,y, 'ro')
     plt.plot(X_test,y_test, 's')
     plt.plot(x_ve, y_ve, 'b')
     plt.plot(x_ve, y_real, '--')
-    plt.title('Hoi quy da thuc bac 16')
+    plt.title('Hồi quy đa thức bậc 16')
 
     st.pyplot(fig)

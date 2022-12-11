@@ -59,10 +59,10 @@ def CheckComment(data):
     
     
     if (my_prediction1 == 0 and my_prediction2 == 0):
-        return "Non Spam and Non Toxic"
+        return "bình luận hợp lệ."
     elif (my_prediction1 == 1 and my_prediction2 == 0):
-        return "Spam and Non Toxic"
+        return "bình luận rác."
     elif (my_prediction1 == 0 and my_prediction2 == 1):
-        return "Non Spam and Toxic"
+        return "bình luận thô tục, xúc phạm."
     else:
-        return "Spam and Toxic"
+        return "bình luận rác mang tính thô tục và xúc phạm."

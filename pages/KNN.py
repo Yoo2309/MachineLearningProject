@@ -12,6 +12,8 @@ import imutils
 import cv2
 from tensorflow import keras 
 import joblib
+import io
+from PIL import Image
 
 st.markdown("# KNN ❄️")
 st.sidebar.markdown("# KNN ❄️")
@@ -136,7 +138,10 @@ elif (app_mode =='Bai03'):
     model.fit(trainData, trainLabels)
 
     # save model, sau này ta sẽ load model để dùng 
-    joblib.dump(model, "knn_mnist.pkl")
+    def pickle_model(model):
+        f = io.BytesIO()
+        joblib.dump(model, f)
+        return f 
 
     # Đánh giá trên tập validation
     predicted = model.predict(valData)
@@ -147,6 +152,8 @@ elif (app_mode =='Bai03'):
     predicted = model.predict(X_test)
     do_chinh_xac = accuracy_score(Y_test, predicted)
     st.write('Độ chính xác trên tập test: %.0f%%' % (do_chinh_xac*100))
+
+    st.download_button("Download Model", data=pickle_model(model), file_name="knn_mnist.pkl")
 
 elif (app_mode =='Bai3a'):
     st.title('Bài 3a')
@@ -224,3 +231,10 @@ elif (app_mode == 'Bai04'):
                     st.write(ketqua )
 else:
     st.header("Bài 8")
+    bottom_image = st.file_uploader('', type='jpg', key=6)
+    if bottom_image is not None:
+        image = Image.open(bottom_image)
+        st.image(image)
+        st.write('Resize: width = 600 - height = 400')
+        new_image = image.resize((600, 400))
+        st.image(new_image)

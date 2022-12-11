@@ -5,6 +5,7 @@ from sklearn import datasets, linear_model
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 st.markdown("# Hồi quy ❄️")
 st.sidebar.markdown("# Regression ❄️")
@@ -24,21 +25,44 @@ app_mode = st.selectbox('Chọn bài',['Bai01','Bai02', 'Bai03', 'Bai04', 'Bai05
 
 if (app_mode == 'Bai01'):
     st.title("Bài 01")
-    
     X = np.array([[147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]])
-    one = np.ones((1, X.shape[1]))
-    Xbar = np.concatenate((one, X), axis = 0) # each point is one row
+    mot = np.ones((1, 13), dtype = np.int32)
+    X_bar = np.vstack((mot, X))
+    X_bar_T = X_bar.T
+    A = np.matmul(X_bar, X_bar_T)
     y = np.array([[ 49, 50, 51, 54, 58, 59, 60, 62, 63, 64, 66, 67, 68]]).T
-    A = np.dot(Xbar, Xbar.T)
-    b = np.dot(Xbar, y)
-    w = np.dot(np.linalg.pinv(A), b)
+    b = np.matmul(X_bar, y)
+    A_inv = np.linalg.pinv(A)
+    w = np.matmul(A_inv, b)
+    x =[]
+    e = []
+    for i in range(0,13):
+        x.append(X[0,i])
+    for i in range(0,13):
+        e.append(y.T[0,i])
+    df = pd.DataFrame({
+        'Chiều cao(cm)':x,
+        'Cân nặng tương ứng(kg)':e,
+    })
+    st.header('Bảng số liệu tham khảo:')
+    st.write(df.T)
+    
+    x1 = X[0, 0]
+    y1 = x1*w[1, 0] + w[0, 0]
+    x2 = X[0, -1]
+    y2 = x2*w[1, 0] + w[0, 0]
+    plt.plot(X, y.T, 'ro')
+    plt.plot([x1, x2], [y1, y2])  
+    st.header('Đồ thị')  
+    st.pyplot()
     # weights
+    st.write('Ví dụ một số dự đoán:')
     w_0, w_1 = w[0], w[1]
-    st.write(w_0, w_1)
-    y1 = w_1*155 + w_0
-    y2 = w_1*160 + w_0
-    st.write('Input 155cm, true output 52kg, predicted output %.2fkg' %(y1))
-    st.write('Input 160cm, true output 56kg, predicted output %.2fkg' %(y2))
+    y1 = w_1*150 + w_0
+    y2 = w_1*170 + w_0
+    st.write('Chiều cao 150cm, cân nặng thực tế 50kg, cân nặng dự đoán %.2fkg' %(y1))
+    st.write('Chiều cao 170cm, cân nặng thực tế 62kg, cân nặng dự đoán %.2fkg' %(y2))
+    st.set_option('deprecation.showPyplotGlobalUse', False)
 elif (app_mode == 'Bai02'):
     st.title("Bài 02")
     
@@ -49,7 +73,7 @@ elif (app_mode == 'Bai02'):
     regr = linear_model.LinearRegression()
     regr.fit(X, y) # in scikit-learn, each sample is one row
     # Compare two results
-    st.write("scikit-learn’s solution : w_1 = ", regr.coef_[0], "w_0 = ", regr.intercept_)
+    st.write("Scikit-learn’s solution : w_1 = ", regr.coef_[0], "w_0 = ", regr.intercept_)
     X = X[:,0]
     fig, ax = plt.subplots()
     plt.plot(X, y, 'ro')
@@ -65,6 +89,7 @@ elif (app_mode == 'Bai02'):
     st.pyplot(fig)
 elif (app_mode == 'Bai03'):
     st.title("Bài 03")
+    st.write('Hồi quy bậc 2')
     
     m = 100
     X = 6 * np.random.rand(m, 1) - 3
@@ -109,6 +134,7 @@ elif (app_mode == 'Bai03'):
     st.pyplot(fig)
 elif (app_mode == 'Bai04'):
     st.title("Bài 04")
+    st.write('Sự nhiễu của 1 cặp dữ liệu trong model (150cm, 90kg)')
     
     # height (cm), input data, each row is a data point
     X = np.array([[147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]]).T
@@ -117,7 +143,6 @@ elif (app_mode == 'Bai04'):
     regr = linear_model.LinearRegression()
     regr.fit(X, y) # in scikit-learn, each sample is one row
     # Compare two results
-    st.write("scikit-learn’s solution : w_1 = ", regr.coef_[0], "w_0 = ", regr.intercept_)
     
     fig, ax = plt.subplots()
     X = X[:,0]
@@ -134,6 +159,7 @@ elif (app_mode == 'Bai04'):
     st.pyplot(fig)
 else:
     st.title("Bài 05")
+    st.write('Cách khắc phục sự nhiễu ở Bài 04')
     
     # height (cm), input data, each row is a data point
     X = np.array([[147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]]).T
@@ -142,7 +168,7 @@ else:
     huber_reg = linear_model.HuberRegressor()
     huber_reg.fit(X, y) # in scikit-learn, each sample is one row
     # Compare two results
-    st.write("scikit-learn’s solution : w_1 = ", huber_reg.coef_[0], "w_0 = ", huber_reg.intercept_)
+    st.write("Scikit-learn’s solution : w_1 = ", huber_reg.coef_[0], "w_0 = ", huber_reg.intercept_)
     fig, ax = plt.subplots()
     X = X[:,0]
     plt.plot(X, y, 'ro')

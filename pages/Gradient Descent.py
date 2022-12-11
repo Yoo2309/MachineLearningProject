@@ -7,7 +7,7 @@ import streamlit as st
 st.markdown("# Giảm dần đạo hàm ❄️")
 st.sidebar.markdown("# Gradient Descent ❄️")
 
-app_mode = st.selectbox('Chọn bài',['Bai01','Bai02', 'Bai02a','Bai03', 'Bai04', 'Bai05', 'Temp']) 
+app_mode = st.selectbox('Chọn bài',['Bai01','Bai02', 'Bai02a','Bai03', 'Bai04', 'Bai05', 'Temp', 'Momentum']) 
 
 if (app_mode == 'Bai01'):
     st.title('Bài 1')
@@ -166,7 +166,7 @@ elif (app_mode == 'Bai03'):
     model = LinearRegression()
     model.fit(X.reshape(-1, 1), y.reshape(-1, 1))
     w, b = model.coef_[0][0], model.intercept_[0]
-    st.write('b = %.4f va w = %.4f' % (b, w))
+    st.write('b = %.4f & w = %.4f' % (b, w))
 
     one = np.ones((X.shape[0],1))
     Xbar = np.concatenate((one, X.reshape(-1, 1)), axis = 1)
@@ -190,7 +190,7 @@ elif (app_mode == 'Bai03'):
 
     w_init = np.array([0, 0])
     (w1, it1) = myGD(w_init, 1)
-    st.write('Sol found by GD: w = ', w1[-1], ',\nafter %d iterations.' %(it1+1))
+    st.write('Sol found by GD: w = ', w1[-1], ',\tafter %d iterations.' %(it1+1))
     # for item in w1:
     #     st.write(item, cost(item))
 
@@ -232,14 +232,14 @@ elif (app_mode == 'Bai03'):
     ww = temp[1]
     zz = cost(temp) 
     ax.plot3D(bb, ww, zz, 'ro', markersize = 3)
-        
-    # Create an object for graph layout
-    data = go.Surface(x = b, y = w, z = z)
-    fig = go.Figure(data)
 
-    st.plotly_chart(fig)
+
+    ax.plot_wireframe(b, w, z)
+    ax.set_xlabel("b")
+    ax.set_ylabel("w")
+
+    st.pyplot(fig=None, clear_figure=None)
     
-
 elif (app_mode == 'Bai04'):
     st.title('Bài 4')
     x = np.linspace(-2, 2, 21)
@@ -316,7 +316,7 @@ elif (app_mode == 'Bai05'):
     plt.ylabel('w')
     plt.axis('square')
     st.pyplot(fig)
-else:
+elif (app_mode == 'Temp'):
     st.title('Temp')
 
     X = np.linspace(-2, 2, 21)
@@ -329,3 +329,43 @@ else:
     fig = go.Figure(data)
 
     st.plotly_chart(fig)
+
+elif (app_mode == 'Momentum'):
+    st.title('Gradient Descent with Momentum')
+    x = np.linspace(-5, 5, 100)
+    y = x**2 + 10*np.sin(x)
+    fig, ax = plt.subplots()
+    plt.plot(x, y)
+    x_1 = -3.5
+    y_1 = x_1**2 + 10*np.sin(x_1)
+
+    m = 2*x_1 + 10*np.cos(x_1)
+    dx = 1
+    dy = m*dx
+    L = np.sqrt(dx**2 + dy**2)
+    he_so = 5
+    dx = he_so*dx / L
+    dy = he_so*dy / L
+
+    plt.arrow(x_1 + 0.5 , y_1, dx, dy, head_width = 0.5)
+
+    plt.plot(x_1 + 0.5, y_1, 'ro', markersize = 20)
+
+    x_2 = 0
+    y_2 = x_2**2 + 10*np.sin(x_2)
+
+    m = 2*x_2 + 10*np.cos(x_2)
+    dx = -1
+    dy = m*dx
+    L = np.sqrt(dx**2 + dy**2)
+    he_so = 5
+    dx = he_so*dx / L
+    dy = he_so*dy / L
+
+    plt.arrow(x_2, y_2 + 4, dx, dy, head_width = 0.5)
+    plt.plot(x_2, y_2 + 4, 'yo', markersize = 20)
+
+    plt.fill_between(x, y, -10)
+
+    plt.axis([-6, 6, -10, 40])
+    st.pyplot(fig)
