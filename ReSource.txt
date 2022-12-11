@@ -1,3 +1,6 @@
 Spam&Toxic Comment idea resource: https://www.youtube.com/watch?v=tFjeUtFay_Q
 data train for Spam Youtube Comment resource: https://github.com/Jcharis/Machine-Learning-Web-Apps/tree/master/Youtube-Spam-Detector-ML-Flask-App/data
 data train for toxic comment resource: https://github.com/mrthlinh/toxic-comment-classification/tree/master/data
+https://tek4.vn/cac-bai-toan-trong-hoc-may
+https://machinelearningcoban.com/2017/01/12/gradientdescent/#gradient-descent
+https://itnavi.com.vn/blog/git-la-gi
