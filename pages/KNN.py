@@ -87,7 +87,7 @@ if app_mode=='Bai01':
 
     my_test = np.array([[2.5, 4.0]])
     ket_qua = knn.predict(my_test)
-    st.write('Ket qua nhan dang la nhom:', ket_qua[0])
+    st.write('Ket qua nhan dang cua', my_test, ' la nhom:', ket_qua[0])
     st.pyplot(fig)
 elif (app_mode == 'Bai02'):
     st.title("Bài 02") 
