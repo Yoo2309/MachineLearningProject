@@ -10,7 +10,7 @@ from sklearn.inspection import DecisionBoundaryDisplay
 import matplotlib.pyplot as plt
 import numpy as np
 
-st.markdown("# SVM ❄️")
+st.markdown("# Support Vector Machine ❄️")
 st.sidebar.markdown("# SVM ❄️")
 
 def get_fvalue(val):
@@ -24,7 +24,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['Bai1','Bai1a','Bai2','plot_linearsvc_support_vectors']) 
+app_mode = st.sidebar.selectbox('Chọn bài',['Bai1','Bai1a','Bai2','plot_linearsvc_support_vectors']) 
 
 if app_mode=='Bai1':
     st.title("Bài 1") 

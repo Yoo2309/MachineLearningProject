@@ -27,7 +27,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['Bai01','Bai02', 'Bai03', 'Bai3a', 'Bai04', 'Bai08']) 
+app_mode = st.selectbox('Chọn bài',['Bai01','Bai02', 'Bai03', 'Bai3a', 'Bai04', 'Bai08']) 
 
 if app_mode=='Bai01':
     

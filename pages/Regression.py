@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import numpy as np
 
-st.markdown("# Regression ❄️")
+st.markdown("# Hồi quy ❄️")
 st.sidebar.markdown("# Regression ❄️")
 
 def get_fvalue(val):
@@ -20,7 +20,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['Bai01','Bai02', 'Bai03', 'Bai04', 'Bai05']) 
+app_mode = st.selectbox('Chọn bài',['Bai01','Bai02', 'Bai03', 'Bai04', 'Bai05']) 
 
 if (app_mode == 'Bai01'):
     st.title("Bài 01")

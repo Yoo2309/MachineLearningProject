@@ -6,8 +6,8 @@ from sklearn import linear_model
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error
 
-st.markdown("# Regression ❄️")
-st.sidebar.markdown("# Regression ❄️")
+st.markdown("# Overfitting ❄️")
+st.sidebar.markdown("# Overfitting ❄️")
 
 def get_fvalue(val):
     feature_dict = {"No":1,"Yes":2}
@@ -20,7 +20,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
         
-app_mode = st.sidebar.selectbox('Select Page',['Bai01a','Bai01b', 'Bai01c', 'Bai01d']) 
+app_mode = st.selectbox('Chọn bài',['Bai01a','Bai01b', 'Bai01c', 'Bai01d']) 
 if (app_mode == 'Bai01a'):
     np.random.seed(100)
 

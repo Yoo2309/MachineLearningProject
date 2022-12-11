@@ -14,9 +14,9 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['Decision_Tree_Regression','Linear_Regression','Random_Forest_Regression_Grid_Search_CV',
-                                                'Random_Forest_Regression_Random_Search_CV', 'Random_Forest_Regression',
-                                                'PhanNhomMedianIncome']) 
+app_mode = st.selectbox('Chọn bài',['Decision_Tree_Regression','Linear_Regression','Random_Forest_Regression_Grid_Search_CV',
+                                                'Random_Forest_Regression_Random_Search_CV', 
+                                                'Random_Forest_Regression', 'PhanNhomMedianIncome']) 
 
 def ShowResult (some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test):
     st.write("Predictions:", some_data_prepared)
@@ -49,7 +49,6 @@ elif app_mode == 'Linear_Regression':
     some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test = Linear_Regression()
     st.line_chart(some_data_prepared)
     ShowResult(some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test)
-
 elif app_mode == 'Random_Forest_Regression_Grid_Search_CV':
     st.title('Random Forest Regression Grid Search CV')
     from pages.CaliHousing1.Random_Forest_Regression_Grid_Search_CV import *
@@ -62,7 +61,6 @@ elif app_mode == 'Random_Forest_Regression_Random_Search_CV':
     from pages.CaliHousing1.Random_Forest_Regression_Random_Search_CV import *
     some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test = Rand_Forest_Regression_Rand_Search_CV()
     ShowResult(some_labels, some_data_prepared, rmse_train, rmse_cross_validation, rmse_test)
-
 elif app_mode == 'Random_Forest_Regression':
     st.title('Random Forest Regression')
     from pages.CaliHousing1.Random_Forest_Regression import *
