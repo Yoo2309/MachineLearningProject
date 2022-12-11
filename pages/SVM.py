@@ -13,6 +13,12 @@ import numpy as np
 st.markdown("# Support Vector Machine ❄️")
 st.sidebar.markdown("# SVM ❄️")
 
+html = '''
+    <p /align="justify";/>SVM là một phương pháp hiệu quả cho bài toán phân lớp dữ liệu. Nó là một công cụ đắc lực cho các bài toán về xử lý ảnh, phân loại văn bản, phân tích quan điểm. Một yếu tố làm nên hiệu quả của SVM đó là việc sử dụng Kernel function khiến cho các phương pháp chuyển không gian trở nên linh hoạt hơn.</p>
+    '''
+st.markdown(html, unsafe_allow_html=True)
+st.image('images/svm.png')
+
 def get_fvalue(val):
     feature_dict = {"No":1,"Yes":2}
     for key,value in feature_dict.items():
@@ -24,7 +30,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Chọn bài',['Bai1','Bai1a','Bai2','plot_linearsvc_support_vectors']) 
+app_mode = st.selectbox('Chọn bài',['Bai1','Bai1a','Bai2','plot_linearsvc_support_vectors']) 
 
 if app_mode=='Bai1':
     st.title("Bài 1") 

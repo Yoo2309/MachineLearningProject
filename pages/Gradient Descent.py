@@ -7,6 +7,23 @@ import streamlit as st
 st.markdown("# Giảm dần đạo hàm ❄️")
 st.sidebar.markdown("# Gradient Descent ❄️")
 
+html = '''
+    <h3>Bài toán:</h3>
+    <p /align="justify";/>Xét hàm số f(x) = 2x + 5 sin(x) với đạo hàm f'(x) = 2x + 5 cos(x). Giả sử bắt đầu từ một 
+điểm x0 nào đó, tại vòng lặp thứ t, chúng ta sẽ cập nhật như sau:
+xt+1 = xt − η(2xt + 5 cos(xt)) <br>
+Khi thực hiện trên Python, ta cần viết các hàm số: <br>
+1. grad để tính đạo hàm. <br>
+2. cost để tính giá trị của hàm số. Hàm này không sử dụng trong thuật toán nhưng thường
+được dùng để kiểm tra việc tính đạo hàm có đúng không hoặc để xem giá trị của hàm số
+có giảm theo mỗi vòng lặp hay không. <br>
+3. myGD1 là phần chính thực hiện thuật toán GD nêu phía trên. Đầu vào của hàm số này là
+learning rate và điểm xuất phát. Thuật toán dừng lại khi đạo hàm có độ lớn đủ nhỏ.
+</p>
+    '''
+st.markdown(html, unsafe_allow_html=True)
+st.image('images/daoham.png')
+
 app_mode = st.selectbox('Chọn bài',['Bai01','Bai02', 'Bai02a','Bai03', 'Bai04', 'Bai05', 'Temp', 'Momentum']) 
 
 if (app_mode == 'Bai01'):

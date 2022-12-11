@@ -9,6 +9,19 @@ from sklearn.metrics import mean_squared_error
 st.markdown("# Overfitting ❄️")
 st.sidebar.markdown("# Overfitting ❄️")
 
+html = '''
+    <h3>Bài toán:</h3>
+    <p /align="justify";/>Để có cái nhìn đầu tiên về overfitting, chúng ta cùng xem Hình 8.1. Có 50 điểm dữ liệu, ở
+đó đầu ra bằng một đa thức bậc ba của đầu vào cộng thêm nhiễu. Tập dữ liệu này được
+chia làm hai phần: 30 điểm dữ liệu màu đỏ là training set, 20 điểm dữ liệu màu vàng là dữ
+liệu kiểm thử. Đồ thị của đa thức bậc ba này được cho bởi đường nét đứt màu xanh lục. Bài
+toán đặt ra là giả sử ta không biết mô hình ban đầu mà chỉ biết các điểm dữ liệu, hãy tìm
+một mô hình tốt để mô tả quan hệ giữa đầu vào và đầu ra của dữ liệu đã cho. Giả sử biết
+thêm rằng mô hình được mô tả bởi một đa thức.</p>
+    '''
+st.markdown(html, unsafe_allow_html=True)
+st.image('images/overfitting.png')
+
 def get_fvalue(val):
     feature_dict = {"No":1,"Yes":2}
     for key,value in feature_dict.items():

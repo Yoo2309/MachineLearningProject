@@ -18,6 +18,13 @@ from PIL import Image
 st.markdown("# KNN ❄️")
 st.sidebar.markdown("# KNN ❄️")
 
+html = '''
+    <h3>Bài toán:</h3>
+    <p /align="justify";/>bài toán Classification với 3 classes: Đỏ, Lam, Lục. Mỗi điểm dữ liệu mới (test data point) sẽ được gán label theo màu của điểm mà nó thuộc về. Trong hình này, có một vài vùng nhỏ xem lẫn vào các vùng lớn hơn khác màu. Ví dụ có một điểm màu Lục ở gần góc 11 giờ nằm giữa hai vùng lớn với nhiều dữ liệu màu Đỏ và Lam. Điểm này rất có thể là nhiễu. Dẫn đến nếu dữ liệu test rơi vào vùng này sẽ có nhiều khả năng cho kết quả không chính xác.</p>
+    '''
+st.markdown(html, unsafe_allow_html=True)
+st.image('images/knn.png')
+
 def get_fvalue(val):
     feature_dict = {"No":1,"Yes":2}
     for key,value in feature_dict.items():
@@ -80,7 +87,7 @@ if app_mode=='Bai01':
 
     my_test = np.array([[2.5, 4.0]])
     ket_qua = knn.predict(my_test)
-    st.write('Kết quả nhận dạng của', my_test, ' la nhom:', ket_qua[0])
+    st.write('Ket qua nhan dang la nhom:', ket_qua[0])
     st.pyplot(fig)
 elif (app_mode == 'Bai02'):
     st.title("Bài 02") 

@@ -10,6 +10,22 @@ import pandas as pd
 st.markdown("# Hồi quy ❄️")
 st.sidebar.markdown("# Regression ❄️")
 
+html = '''
+    <h3>Bài toán:</h3>
+    <p /align="justify";/>Xét một ví dụ đơn giản có thể áp dụng linear regression. Chúng ta cũng sẽ so sánh nghiệm của
+bài toán khi giải theo phương trình (7.11) và nghiệm tìm được khi dùng thư viện scikit-learn
+của Python.
+Xét ví dụ về dự đoán cân nặng dựa theo chiều cao. Xét bảng cân nặng và chiều cao của 15
+người trong Bảng 7.1. Dữ liệu của hai người có chiều cao 155 cm và 160 cm được tách ra
+làm test set, phần còn lại tạo thành training set.
+Bài toán đặt ra là: liệu có thể dự đoán cân nặng của một người dựa vào chiều cao của họ
+không? (Trên thực tế, tất nhiên là không, vì cân nặng còn phụ thuộc vào nhiều yếu tố khác
+nữa, thể tích chẳng hạn). Có thể thấy là cân nặng thường tỉ lệ thuận với chiều cao (càng
+cao càng nặng), nên có thể sử dụng linear regression cho việc dự đoán này.</p>
+    '''
+st.markdown(html, unsafe_allow_html=True)
+st.image('images/bang7.1.png')
+
 def get_fvalue(val):
     feature_dict = {"No":1,"Yes":2}
     for key,value in feature_dict.items():
