@@ -4,7 +4,7 @@ st.sidebar.markdown("# 🏠 Home")
 container = st.container(); 
 
 html =  '''
-           <h2 style=\"font-weight: bold; text-align: center;\">ĐỒ ÁN CUỐI KỲ MACHINE LEARNING</h2> <br>
+           <h2 style=\"font-weight: bold; text-align: center;\">ĐỒ ÁN CUỐI KỲ MACHINE LEARNING</h2>
            <h4 style=\"font-weight: bold;\">Mã lớp học phần: MALE431984_22_1_04</h4>
            <h4 style=\"font-weight: bold;\">Giảng viên hướng dẫn: Ths.Trần Tiến Đức</h4>
            <h4 style=\"font-weight: bold;\">Sinh viên thực hiện:</h4>

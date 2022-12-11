@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_12_10_2022_5_58_PM_[Changes]" date="1670669914857" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_10_2022_5_58_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 12/10/2022 5:58 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="pages/KNN1/digit.jpg" />
+    <option name="AFTER_PATH" value="pages/KNN1/digit.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_10_2022_5_58_PM_[Changes]/digit.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="knn_mnist.pkl" />
+    <option name="AFTER_PATH" value="knn_mnist.pkl" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_10_2022_5_58_PM_[Changes]/knn_mnist.pkl" />
+  </binary>
+</changelist>
